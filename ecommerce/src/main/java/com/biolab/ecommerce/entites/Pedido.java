@@ -1,0 +1,26 @@
+package com.biolab.ecommerce.entites;
+
+import com.biolab.ecommerce.entites.enums.StatusPedido;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+import java.time.Instant;
+
+@Entity
+//Subsitui os getters e setters
+@Data
+//Substitui o construtor com todos os argumentos
+@AllArgsConstructor
+//Substitui o construtor vazio
+public class Pedido {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private Instant momento;
+    private StatusPedido status;
+    @ManyToOne
+    private Usuario cliente;
+
+}
